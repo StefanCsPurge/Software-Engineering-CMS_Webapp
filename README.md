@@ -22,5 +22,3 @@
       <li>User Testing, Manual Testing</li>
     <li>Unit Testing: JUnit</li> 
     </ul>
-</li>
-<li>
