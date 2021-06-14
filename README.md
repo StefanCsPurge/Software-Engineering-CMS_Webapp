@@ -1,7 +1,6 @@
 # Software-Engineering - Conference Management System 
 
 # Team Commodore 64
-Faculty Software Engineering team project - Conference Management System 
 
 <a href="https://github.com/StefanCsPurge/Software-Engineering-CMS_Webapp/blob/main/documents/Documentation.pdf">Complete description</a>
 
