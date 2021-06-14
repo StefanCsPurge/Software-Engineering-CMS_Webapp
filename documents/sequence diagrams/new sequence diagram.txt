@@ -1,0 +1,59 @@
+title Review Sequence Diagram
+
+
+
+actor Chair
+actor Reviewer
+participant UI
+participant ReviewService
+participant DB
+
+activate UI
+activate ReviewService
+Chair->UI: assign paper to each reviewer
+UI->ReviewService : send input to server
+activate DB
+ReviewService->DB: save association
+DB -->ReviewService: association is saved
+deactivate DB
+ReviewService-->UI: association is saved
+
+Reviewer-> UI: review paper
+UI->ReviewService: save paper review
+deactivate UI
+deactivate ReviewService
+activate DB
+ReviewService ->DB: save paper review
+DB->ReviewService : paper review is saved
+
+ReviewService ->DB: check if user is able to see other reviews
+DB->ReviewService : return permission level of user
+deactivate DB
+activate UI
+alt case user has permisson
+activate ReviewService
+ReviewService --> UI: display reviews of other reviewers
+
+else user does not have permisson
+ReviewService --> UI: display that user can't see other reviews
+end
+deactivate ReviewService
+deactivate UI
+
+
+
+alt solve by himself
+activate UI
+Chair->UI: solve evaluation conflict by \nhimself (accept/reject paper)
+activate ReviewService
+UI->ReviewService: update status for selected paper
+ReviewService ->DB: update status for paper
+deactivate ReviewService
+else ask other to discuss
+Chair->UI: ask reviewers to discuss\n evaluation conflict
+activate ReviewService
+UI->ReviewService: create new review conflict
+ReviewService ->DB: update review conflict
+deactivate ReviewService
+end
+
