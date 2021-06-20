@@ -1,0 +1,39 @@
+Development activities deal with the complexity
+by constructing and validating models of the
+application domain or the system.
+
+Development activities include:
+
+1. Requirements Elicitation
+	- the result of this activity is a description of the system in terms of actors and use cases.
+
+2. Analysis
+	- transform the use cases produced during requirements elicitation into an object model that completely describes the system
+	- discover ambiguities and inconsistencies in the use case model that are resolved with the client
+	- the result of analysis is a system model annotated with attributes, operations, and associations (can be described in terms of
+		its structure and its dynamic interoperation)
+
+3. System Design
+	- decompose the system into smaller subsystems that can be realized by individual teams
+	- select strategies for building the system (hardware/software platform on which the system will run, the persistent data management strategy, the global control flow, the access control policy, the handling of boundary conditions)
+	- results in a clear description of each of the strategies, a subsystem decomposition, and a deployment diagram representing the hardware/software mapping of the system
+	- e.g.: multi layer, client-server, repository, pipe&filter, MVC a.s.o
+
+4. Object Design
+	- define solution domain objects to bridge the gap between the analysis model and the hardware/software platform defined during system design
+	  i.e. 	+ precisely describing object and subsystem interfaces
+		+ selecting off-the-shelf components
+		+ restructuring the object model to attain design goals such as extensibility or understandability
+		+ optimizing the object model for performance
+	- the result of the object design activity is a detailed object model annotated with constraints and precise descriptions for each element
+	- e.g.: design patterns
+
+5. Implementation
+	- translate the solution domain model into source code (implement the attributes and methods of each object and integrate all the objects such that they function as a single system)
+
+6. Testing
+	- find differences between the system and its models by executing the system (or parts of it) with sample input data sets
+	- goal is to discover as many faults as possible such that they can be repaired before the delivery of the system
+	- the planning of test phases occurs in parallel to the other development activities
+
+
